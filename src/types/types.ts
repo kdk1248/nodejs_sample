@@ -31,3 +31,9 @@ console.log(array0fNumbers2[2]); //
 // let singleNumberTuple: [number];
 // singleNumberTuple = [5]; 
 // // singleNumberTuple = ["5"]; <- X  
+
+//함수의 명시적 타입 지정 방법 (매개변수 / Parameter)
+function greeter(name:string): string{
+    return "Hello," + name;
+}
+console.log(greeter("Tom"));
