@@ -37,3 +37,6 @@ var meterLength = addLength / 10;
 //..개발 완료 
 console.log(addLength);
 console.log(meterLength);
+
+const obj = { width: 10, height: 15};
+const area = obj.width * obj.heighgt;
