@@ -1,15 +1,25 @@
 //Class 이용 
 class Robot{ // Members
     //Property 또는 Field(속성, 필드)
-    name:string;
-    model:string ;
-    status:string = "Active" ; 
+    private name:string;
+    private model:string ;
+    private status:string = "Active" ; 
 
     //Constructor(생성자)
     constructor(name:string, model: string){
         this.name = name;
         this.model = model;
     };
+    //Get for name
+    public getName(): string {
+        return this.name;
+    }
+    public getModel(): string {
+        return this.model;
+    }
+    public getStatus(): string {
+        return this.status;
+    }
 
     //Method(행동)
     performTask(task: string){
@@ -28,9 +38,9 @@ let r2 = new Robot("By3", "He")
 let r3 = new Robot("By4", "Ho")
 
 //Acessing properties an Calling method
-console.log(r1.name);
-console.log(r2.model);
-console.log(r3.status);
+console.log(r1.getName);
+console.log(r2.getModel);
+console.log(r3.getStatus);
 
 r1.performTask("Charging");
 r2.performTask("Exploring");
@@ -81,7 +91,7 @@ user2.study();
 //클래스의 상속
 class CleaningRobot extends Robot{ // Members
     cleaningSchedule: string[];
-    status:string = "Active" ; 
+    // private status:string = "Active" ; 
 
     //Constructor(생성자)
     constructor(name:string, model: string, cleaningSchedule: string[]){
@@ -93,7 +103,7 @@ class CleaningRobot extends Robot{ // Members
     //     console.log(`${this.name} is cleaning according to the schedul ${this.cleaningSchedule.join(",")}.`)
     // }
     override performTask(){ //override <-재정의의 개념, 자동으로 실행되니까 생략 가능 , overroad<- 새 것의 개념
-        console.log(`${this.name} is cleaning according to the schedul ${this.cleaningSchedule.join(",")}.`)
+        console.log(`${this.getName} is cleaning according to the schedul ${this.cleaningSchedule.join(",")}.`)
     }
 }
 class CookingRobot{ // Members
@@ -124,3 +134,16 @@ class CookingRobot{ // Members
         console.log(`${this.name} is cooking according to the menus ${this.availableMenus.join(",")}.`)
     }
 }
+
+
+//접근 제어자 Visivility Modifier / Access Modifier
+//public - protected - default - private (x)
+//(default)
+//public: 모든 클래스에서 접근 가능(기본값)
+//protected: 같은 클래스와 자식 클래스에서 접근 가능
+//private: 해당  클래스에서만 접근 가능
+
+let c1 = new CleaningRobot("ABC-1", "Prime", ["sun", "mon"])
+console.log(c1.cleaningSchedule)
+c1.performTask();
+console.log(c1.getName());
