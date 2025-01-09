@@ -100,8 +100,8 @@ function printId(id:number | string ){ // | <- or 라는 뜻
 printId(10);
 printId("Hello");
 // 타입 별칭으로도 Union 같이 다른 타입들도 커스텀 가능\
-
 type ID = number | string 
+
 // Type Alias & Interface
 function printCoord(point: {x: number, y: number}){
     console.log("The coordinate's x vlaue is" + point.x);
@@ -112,10 +112,10 @@ printCoord({x:100, y:100});
 //해당 객체의 속성이 같다면,, 하지만 파라미터가 point 1,2,3....235까지 늘어난다면 계속해서 중복 코드가 늘어남
 
 //사용자 정의 타입을 사용 할 수 있음
-type Point = {
-    x: number,
-    y: number
-}
+// type Point = {
+//     x: number,
+//     y: number
+// }
 
 //예시
 function calculateDistance(point1:Point, point2: Point ):number{
@@ -124,3 +124,48 @@ function calculateDistance(point1:Point, point2: Point ):number{
     return Math.sqrt(locationX **2 + locationY** 2)
 }
 
+interface Point {
+    x: number,
+    y: number
+}
+
+//개방 폐쇄 원칙에 유리하다라고 했기 때문에
+//예시
+
+// interface Animal{
+//     name:string;
+// }
+
+// interface Bear extends Animal{
+//     honey: boolean;
+// }
+
+// function getBear(): Bear{
+//     return {
+//         name:"Grizzly",
+//         honey:true,
+//     };
+// }
+
+// const bear = getBear()
+// console.log(bear.name) // from Animal
+// console.log(bear.honey) 
+
+//Type Alias의 확장 예시
+type Animal = {
+    name:string;
+}
+type Bear = Animal &{
+    honey:boolean;
+}
+
+function getBear(): Bear{
+    return {
+        name:"Grizzly",
+        honey:true,
+    };
+}
+
+const bear = getBear()
+console.log(bear.name) // from Animal
+console.log(bear.honey) 

@@ -29,20 +29,20 @@ function flipCoin(){
 let x = 3;
 // x = [0,1,null]
 
-class Animal {}
-class Rhino extends Animal {
-    hasHorn: boolean = true;
-}
+// class Animal {}
+// class Rhino extends Animal {
+//     hasHorn: boolean = true;
+// }
 
-class Elephant extends Animal {
-    hasTrunk: boolean = true;
-}
+// class Elephant extends Animal {
+//     hasTrunk: boolean = true;
+// }
 
-class Snake extends Animal {
-    hasLegs: boolean = true;
-}
+// class Snake extends Animal {
+//     hasLegs: boolean = true;
+// }
 
-let zoo = [new Rhino(), new Elephant(), new Snake()];
+// let zoo = [new Rhino(), new Elephant(), new Snake()];
 //
 // zoo는 어떻게 구별되어야 하는가?
 // Animal [] <- Animal 배열로 추론 될 것이다 그러나 각 객체의 배열로 나타남 즉 다른 타입이 지정됨
