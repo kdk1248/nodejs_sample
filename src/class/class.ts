@@ -79,31 +79,20 @@ user2.study();
 
 
 //클래스의 상속
-class CleaningRobot{ // Members
-    //Property 또는 Field(속성, 필드)
-    name:string;
-    model:string ;
+class CleaningRobot extends Robot{ // Members
     cleaningSchedule: string[];
     status:string = "Active" ; 
 
     //Constructor(생성자)
     constructor(name:string, model: string, cleaningSchedule: string[]){
-        this.name = name;
-        this.model = model;
+        super(name,model)
         this.cleaningSchedule = cleaningSchedule;
     };
 
-    //Method(행동)
-    performTask(task: string){
-        console.log(`${this.name} is performing ${task}.`);
-    };
-
-    updateStatus(newStatus: string) {
-        this.status = newStatus;
-        console.log(`${this.name}'s status is now ${this.status}`);
-    };
-
-    performCleaning(){
+    // performCleaning(){
+    //     console.log(`${this.name} is cleaning according to the schedul ${this.cleaningSchedule.join(",")}.`)
+    // }
+    override performTask(){ //override <-재정의의 개념, 자동으로 실행되니까 생략 가능 , overroad<- 새 것의 개념
         console.log(`${this.name} is cleaning according to the schedul ${this.cleaningSchedule.join(",")}.`)
     }
 }
