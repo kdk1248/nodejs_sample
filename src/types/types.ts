@@ -183,3 +183,35 @@ const myJob: Job = {
     title: "SW Engineer",
     company: "Tech"
 }
+
+//타입 단언 Type Assertions
+const apiResponse: any = {
+    id:1,
+    title: "TypeScript Begins",
+    content: "This is contents of Article",
+}
+
+// //Error 지만 찾지 하는 경우(any)
+// console.log(apiResponse.like);
+
+interface Content{
+    id:number;
+    title:string;
+    content:string;
+}
+
+//Type assertions using 'as' keyword
+const content1 = apiResponse as Content;
+//Type assertions using <> bracket synatx
+const content2 = <Content>apiResponse;
+
+
+console.log(content2.title); //like does not exist
+console.log(content2.id); // OK
+
+//리터럴 타입: 특정 값을 타입으로 사용 하는 것 
+function printText(s: string, alignment: "left" | "right" | "center"){ // left, right, center 각각이 다 타입
+    //...
+}
+printText("Hello, world", "left");
+// printText("Hello, world", "centre"); // 특정 값을 타입화 하는 것이지만, 재사용성이 떨어져서 다음으로 대체한다
