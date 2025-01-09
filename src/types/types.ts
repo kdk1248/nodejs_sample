@@ -215,3 +215,37 @@ function printText(s: string, alignment: "left" | "right" | "center"){ // left, 
 }
 printText("Hello, world", "left");
 // printText("Hello, world", "centre"); // 특정 값을 타입화 하는 것이지만, 재사용성이 떨어져서 다음으로 대체한다
+
+
+
+
+//Enum 열거형 타입 사용
+//진행 상태 -start/progress/end와 같이 3개를 status라는 이름으로 묶는 것
+function checkDayType(): void {
+    const currentDay = new Date().getDay();
+
+    const isWorkoutDay = currentDay === Day.Tuesday || currentDay === Day.Thursday;
+    const isWeekend = currentDay === Day.Sunday || currentDay === Day.Saturday;
+
+    const isWorkingDay = 
+        currentDay !== Day.Sunday && currentDay !== Day.Saturday &&
+        currentDay !== Day.Monday && currentDay !== Day.Wednesday;
+
+    console.log(`Today is day number ${currentDay}.`);
+    console.log(`Is today a workout day? ${isWorkoutDay}.`);
+    console.log(`Is today a weekend day? ${isWeekend}.`);
+    console.log(`Is today a working day? ${isWorkingDay}.`);
+}
+//과연 각 숫자들의 의미는 정확히 무엇인지는 불확실하다.
+enum Day{ //열거형 타입
+    Sunday = 0,
+    Monday = 1,
+    Tuesday = 2,
+    Wednesday = 3,
+    Thursday = 4,
+    Friday = 5,
+    Saturday = 6,
+}
+
+//상태나 종류를 구분하는데 많이 사용됨.
+
