@@ -152,20 +152,34 @@ interface Point {
 // console.log(bear.honey) 
 
 //Type Alias의 확장 예시
-type Animal = {
-    name:string;
+// type Animal = {
+//     name:string;
+// }
+// type Bear = Animal &{
+//     honey:boolean;
+// }
+
+// function getBear(): Bear{
+//     return {
+//         name:"Grizzly",
+//         honey:true,
+//     };
+// }
+
+// const bear = getBear()
+// console.log(bear.name) // from Animal
+// console.log(bear.honey) 
+
+//인터페이스 병합의 차이점
+interface Job{ //interface 대신 type 을 사용한다면 중복 코드 오류가 발생
+    title:string;
+
 }
-type Bear = Animal &{
-    honey:boolean;
+interface Job{
+    company: string;
 }
 
-function getBear(): Bear{
-    return {
-        name:"Grizzly",
-        honey:true,
-    };
+const myJob: Job = {
+    title: "SW Engineer",
+    company: "Tech"
 }
-
-const bear = getBear()
-console.log(bear.name) // from Animal
-console.log(bear.honey) 
