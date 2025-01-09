@@ -86,3 +86,16 @@ object();
 object.bar = 100;
 object = "hello";
 const n: number = object;
+
+//Union 타입
+function printId(id:number | string ){ // | <- or 라는 뜻
+    // console.log(id.toUpperCase()); <-이 경우에는 오류가 뜸
+    if(typeof id === "string"){
+        console.log(id.toUpperCase());
+    }else {
+        console.log(typeof id);
+
+    }
+}
+printId(10);
+printId("Hello");
