@@ -28,9 +28,9 @@ identity(arg);
 
 //비효율적인 코드 해겨 ㄼ망법
 //Use Generics
-function indentityWithGenerics<Type>(arg: Type):Type{
-    return arg;
-}
+// function indentityWithGenerics<Type>(arg: Type):Type{
+//     return arg;
+// }
 //Use Generics general version"T"
 function indentityWithGenerics2 <T>(arg: T):T{
     return arg;
@@ -49,3 +49,46 @@ console.log("result of use generics:" + result);
 
 const result2 = indentityWithGenerics3(20, "Hello");
 console.log(result2);
+
+//아래의 3개의 절에는 패턴이 있음 , 가독성을 위함
+//간단 테스트 패턴 연습
+function indentityWithGenerics<Type>(arg: Type):Type{
+    return arg;
+}
+function isNumber(value: any){
+    return typeof value === 'number' && !isNaN(value);
+}
+function isstring(value: any){
+    return typeof value === 'string';
+} // 여기서는 검증을 하지 않겠따
+
+
+//given - 테스트에 필요한 초기 데이터를 설정 -> Mock 모의객체를 만들어서 사용하게 된다.
+const testValue1: number = 20;
+const testValue2: string = "Hi";
+const testValue3: number[] = [1,2];
+
+
+//when1 - 테스트를 실행하는 부분
+const numberIdentity = indentityWithGenerics(testValue1);
+
+//then1 - 결과를 검증하고 출력하는 부분 
+console.log(`Input type is: ${typeof testValue1}`);
+console.log(`Output type is: ${typeof numberIdentity}`);
+console.log(`Is number type is: ${isNumber(numberIdentity)}`);//true
+
+//when2
+const stringIdentity = indentityWithGenerics(testValue2);
+
+//then2 
+console.log(`Input type is: ${typeof testValue2}`);
+console.log(`Output type is: ${typeof stringIdentity}`);
+console.log(`Is string type is: ${isstring(stringIdentity)}`); //true
+
+//when2
+const arrayIdentity = indentityWithGenerics(testValue3);
+
+//then2 
+console.log(`Input type is: ${typeof testValue3}`);
+console.log(`Output type is: ${typeof arrayIdentity}`);
+console.log(`Is array type is: ${Array.isArray(arrayIdentity)}`);//true
